@@ -1,0 +1,37 @@
+
+## Entitäten
+
+Kunde
+Pizza
+Bestellung
+Adresse
+Versandkosten
+Zutaten
+Lieferart
+Mitarbeiter
+User
+Zahlungsart
+Warenkorb
+
+
+Kunde 1 -> N : Adressen, Bestellungen, Zahlungsarten
+Kunde 1 -> 1 : Warenkorb
+
+Pizza 1 -> N : Zutaten
+
+Bestellung 1 -> 1 : Adresse, Versandkosten, Mitarbeiter, Warenkorb, Lieferart
+
+
+## Attribute
+Kunde: Id, Vorname, Nachname, Geburtsdatum, Telefonnummer
+Pizza: Id, Name, PreisKlein, PreisGross
+Bestellung: 
+Adresse
+Versandkosten
+Zutaten
+Lieferart
+Mitarbeiter
+User
+Zahlungsart
+Warenkorb
+
