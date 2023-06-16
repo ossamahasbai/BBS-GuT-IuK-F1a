@@ -3,7 +3,7 @@
 Realisieren einer (online) Pizzeria mit Weboberfläche (HTML, Javascript) mit Bestellmöglichkeit mit oder ohne Anmeldung, Livetracking der Bestellung und Kunden/Produkt/Bestellverwaltung für Admins und dazugehörigem Backend (Server mit Datenbank) I
 
 
-- Datenbank: Kara, Sandra, Robert, Elena, Jaures
+- Datenbank: Kara, Sandra, Robert, Elena
 
 - Frontend Angular, CSS: Phillip, Lukas, Dimitrios, Jan, Eric
 
@@ -11,7 +11,7 @@ Realisieren einer (online) Pizzeria mit Weboberfläche (HTML, Javascript) mit Be
 
 - Backend Java: Thomas, Westa,  Torben, Leo, Mouhamad
 
-- Deployment, Dokumentation: Anton, Osama, Alex, Houssem, Nils, Lars, Harpam
+- Deployment, Dokumentation: Anton, Osama, Alex, Houssem, Nils, Lars, Harpam, Jaures
 
 
 
