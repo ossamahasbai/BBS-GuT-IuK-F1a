@@ -1,0 +1,63 @@
+.example-card {
+  max-width: 400px;
+  cursor: pointer;
+  outline: grey;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.container-1 {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 50px;
+  gap: 16px;
+  justify-content: center;
+}
+
+.example-button-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  & button {
+    &:first-child {
+      border: 3px solid #3f51b5;
+    }
+  }
+}
+
+.example-disabled {
+  display: inline-block;
+}
+
+.example-additional-selection {
+  opacity: 0.75;
+  font-size: 0.75em;
+}
+
+.pizzaPrice {
+  font-size: large;
+  font-weight: bold;
+  color: #3f51b5;
+}
+
+.outline {
+  border-style: solid;
+  border-width: medium;
+}
+
+
+.offer-container {
+  margin-top: 200px;
+  overflow: auto;
+  flex-grow: 1;
+}
+
+.summary {
+  position: fixed;
+  overflow: unset;
+}

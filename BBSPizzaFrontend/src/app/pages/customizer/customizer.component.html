@@ -1,0 +1,90 @@
+<ng-container>
+  <div class="customizer_wrapper">
+
+    <div class="header_wrapper">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Actions Buttons</mat-card-title>
+          <mat-card-subtitle>End</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions align="end">
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <div class="content_wrapper">
+      <mat-accordion>
+        <div class="panel_wrapper">
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Größe
+            </mat-panel-title>
+            <mat-panel-description>
+              Large
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="content_size">
+            <mat-radio-group aria-label="Select an option">
+              <mat-radio-button value="1">Small</mat-radio-button>
+              <mat-radio-button value="2">Medium</mat-radio-button>
+              <mat-radio-button value="3">Large</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </mat-expansion-panel>
+      </div>
+      <div class="panel_wrapper">
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Zutaten
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="content_ingredients">
+            <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+              <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding>
+                <button mat-icon-button disabled></button>
+                <mat-checkbox class="checklist-leaf-node"
+                              [checked]="checklistSelection.isSelected(node)"
+                              (change)="todoLeafItemSelectionToggle(node)">{{node.item}}</mat-checkbox>
+              </mat-tree-node>
+
+              <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
+                <button mat-icon-button matTreeNodeToggle
+                        [attr.aria-label]="'Toggle ' + node.item">
+                  <mat-icon class="mat-icon-rtl-mirror">
+                    {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                  </mat-icon>
+                </button>
+                <mat-checkbox [checked]="descendantsAllSelected(node)"
+                              [indeterminate]="descendantsPartiallySelected(node)"
+                              (change)="todoItemSelectionToggle(node)">{{node.item}}</mat-checkbox>
+              </mat-tree-node>
+            </mat-tree>
+          </div>
+        </mat-expansion-panel>
+      </div>
+      <div class="panel_wrapper">
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Größe
+            </mat-panel-title>
+            <mat-panel-description>
+              Large
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="content_notes">
+            <mat-form-field class="example-full-width">
+              <mat-label>Note</mat-label>
+              <textarea matInput></textarea>
+            </mat-form-field>
+          </div>
+        </mat-expansion-panel>
+      </div>
+      </mat-accordion>
+    </div>
+  </div>
+</ng-container>
