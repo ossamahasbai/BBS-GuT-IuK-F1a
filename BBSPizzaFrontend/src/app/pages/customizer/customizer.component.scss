@@ -1,0 +1,27 @@
+.customizer_wrapper{
+  min-width: 32rem;
+  min-height: calc(100vh - 32rem);
+  padding: 0.5rem;
+  background-image: url('/assets/images/DE_PDES_de_hero_7658.webp');
+  background-size: cover;
+
+  & .header_wrapper{
+    min-height: 16rem;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    padding: 0.2rem 0 0.2rem 0;
+
+    & .mat-mdc-card{
+      width: 100%;
+    }
+  }
+
+  & .content_wrapper{
+    & ::ng-deep{
+      & .panel_wrapper{
+        padding: 0.2rem 0 0.2rem 0;
+      }
+    }
+  }
+}

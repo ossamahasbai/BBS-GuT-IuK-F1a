@@ -1,0 +1,86 @@
+<mat-grid-list cols="4" style="margin-top: 50px">
+  <mat-grid-tile [colspan]="3" [rowspan]="3">
+<div class="container-1">
+<ng-container class="offer-container" *ngFor="let Pizza of offers">
+  <mat-card class="example-card" appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>{{ Pizza.title }}</mat-card-title>
+      <mat-card-subtitle>teststs</mat-card-subtitle>
+    </mat-card-header>
+    <img class="card-image" mat-card-image [src]="Pizza.img" alt="Pizza Salami">
+    <mat-card-content>
+      <p class="pizzaPrice">
+      {{Pizza.price | currency:'EUR'}}
+      </p>
+    </mat-card-content>
+    <mat-card-content>
+      <p>
+        {{ Pizza.description }}
+      </p>
+    </mat-card-content>
+    <mat-card-content>
+      <p>
+        {{ Pizza.ingredients }}
+      </p>
+    </mat-card-content>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>Größe</mat-label>
+        <mat-select name="size">
+          <mat-option *ngFor="let size of sizesArray" [value]="size">
+            {{size}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="example-button-row">
+      <button mat-flat-button>Konfigurieren</button>
+      <button mat-flat-button color="primary" (click)="addToCart(Pizza)">Zum Warenkorb</button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</ng-container>
+</div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div class="summary">
+      <div>
+        <h2>Bestelldetails</h2>
+        <mat-divider></mat-divider>
+        <mat-list>
+          <mat-list-item>
+            <span matListItemTitle>Zeitpunkt</span>
+            <span matListItemLine>17:00 Uhr</span>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item *ngIf="cart.length == 0"> <h4> Dein Warenkorb ist zurzeit leer</h4></mat-list-item>
+          <mat-list-item *ngFor="let item of cart">
+            <p style="text-align:left" matListItemTitle>
+              {{item.title}}
+            <span style="text-align: right; float: right; margin-left: 100px"> {{item.price | currency:'EUR'}}
+              <mat-icon style="cursor: pointer" (click)="removeItemFromCart(item)">remove_shopping_cart</mat-icon>
+            </span>
+            </p>
+            <span>{{item.ingredients}}</span>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>
+            <p style="text-align:left" matListItemTitle>
+              Summe
+              <span style="text-align: right; float: right; margin-left: 100px"> {{cartPrice | currency:'EUR'}} </span>
+            </p>
+          </mat-list-item>
+          <mat-list-item>
+            <button mat-flat-button color="accent" [disabled]="cart.length < 1"> <p style="text-align: left"> {{cart.length}} Artikel | {{cartPrice | currency:'EUR'}}
+              <span style="float: right; text-align: right">        WEITER</span>
+            </p>
+            </button>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+  </mat-grid-tile>
+
+
+</mat-grid-list>
